@@ -6,17 +6,10 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-void sort(int nums[]) {
-
-    // Save the number of indexes in the array
-    int n = sizeof(nums) - 1;
-
-    // Loop to sort the array
-    for (int i = 0; i < n; i++) {
+void sort(int nums[], int n) {
+    for (int i = 0; i < n - 1; i++) {
         for (int j = i + 1; j < n; j++) {
-            // Is the current value greater than the next value?
             if (nums[i] > nums[j]) {
-                // If so, swap those values
                 int a = nums[i];
                 nums[i] = nums[j];
                 nums[j] = a;
@@ -25,10 +18,38 @@ void sort(int nums[]) {
     }
 }
 
+void count(int nums[], int n) {
+    int count = 1;
+    int total[n];
+    int index = 0;
+
+    for (int i = 0; i < n - 1; i++) { // Check up to n - 1
+        if (nums[i] == nums[i + 1]) {
+            count++;
+        } else {
+            total[index] = count;
+            index++;
+            count = 1; // Reset count for the next number
+        }
+    }
+
+    // Add the count for the last set of similar numbers
+    total[index] = count;
+    index++;
+
+    printf("Here is the count of each value: ");
+    for (int i = 0; i < index; i++) {
+        printf("%d ", total[i]);
+    }
+}
+
+
 
 int main() {
     int numbers[] = {24, 1, 6, 21, 2, 9, 3};
+    int n = sizeof(numbers) / sizeof(numbers[0]);
     int randomArray[1000];
+    int m = sizeof(randomArray) / sizeof(randomArray[0]);
 
     // Print the current array
     printf("Here are the numbers in the array: ");
@@ -39,7 +60,7 @@ int main() {
     printf("\n");
 
     // Print the sorted array
-    sort(numbers);
+    sort(numbers, n);
     printf("Here is the array sorted: ");
     for (int i = 0; i < (sizeof(numbers) / 4); i++) {
         printf("%d ", numbers[i]);
@@ -57,18 +78,20 @@ int main() {
     }
 
     printf("\n");
-    printf("Number of indices: %d", length);
 
     printf("\n\n");
 
     // Print the sorted randomized array
-    sort(randomArray);
+    sort(randomArray, m);
     printf("Here is the randomized array sorted: ");
     for (int i = 0; i < length; i++) {
         printf("%d ", randomArray[i]);
     }
     printf("\n");
-    printf("Number of indices: %d", length);
+
+    printf("\n\n");
+
+    count(randomArray, m);
 
     printf("\n\n");
     return 0;
