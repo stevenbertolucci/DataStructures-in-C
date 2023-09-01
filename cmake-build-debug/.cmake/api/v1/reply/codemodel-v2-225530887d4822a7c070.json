@@ -39,7 +39,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "Data_Structures_in_C::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-Data_Structures_in_C-Debug-93e87c48aec6fd0cc400.json",
+					"jsonFile" : "target-Data_Structures_in_C-Debug-539b92fbdf1836f0a7c0.json",
 					"name" : "Data_Structures_in_C",
 					"projectIndex" : 0
 				}
@@ -49,12 +49,12 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/Steven Bertolucci/Downloads/Data Structures in C/cmake-build-debug",
-		"source" : "C:/Users/Steven Bertolucci/Downloads/Data Structures in C"
+		"build" : "C:/Users/spide/CLionProjects/DataStructures-in-C/cmake-build-debug",
+		"source" : "C:/Users/spide/CLionProjects/DataStructures-in-C"
 	},
 	"version" : 
 	{
 		"major" : 2,
-		"minor" : 4
+		"minor" : 5
 	}
 }
