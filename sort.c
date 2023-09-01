@@ -18,6 +18,31 @@ void sort(int nums[], int n) {
     }
 }
 
+void count(int nums[], int n) {
+    int count = 1;
+    int total[n];
+    int index = 0;
+
+    for (int i = 0; i < n - 1; i++) { // Check up to n - 1
+        if (nums[i] == nums[i + 1]) {
+            count++;
+        } else {
+            total[index] = count;
+            index++;
+            count = 1; // Reset count for the next number
+        }
+    }
+
+    // Add the count for the last set of similar numbers
+    total[index] = count;
+    index++;
+
+    printf("Here is the count of each value: ");
+    for (int i = 0; i < index; i++) {
+        printf("%d ", total[i]);
+    }
+}
+
 
 
 int main() {
@@ -53,7 +78,6 @@ int main() {
     }
 
     printf("\n");
-    printf("Number of indices: %d", length);
 
     printf("\n\n");
 
@@ -64,7 +88,10 @@ int main() {
         printf("%d ", randomArray[i]);
     }
     printf("\n");
-    printf("Number of indices: %d", length);
+
+    printf("\n\n");
+
+    count(randomArray, m);
 
     printf("\n\n");
     return 0;
